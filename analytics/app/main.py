@@ -1,12 +1,18 @@
 from fastapi import FastAPI
 from app.routes.analytics_routes import router as analytics_router
+from app.routes.entity_routes import router as entity_routes
 import uvicorn
 
 
 app = FastAPI()
 
 app.include_router(
-    router=analytics_router
+    analytics_router,
+    prefix="/analytics"
+)
+app.include_router(
+    entity_routes,
+    prefix="entity"
 )
 
 
