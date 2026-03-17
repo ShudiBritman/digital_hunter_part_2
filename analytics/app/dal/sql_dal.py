@@ -25,3 +25,19 @@ def high_priority_moved_targets():
     cursor.close()
 
     return value
+
+
+def count_signal_type():
+    query = '''SELECT 
+                signal_type,
+                count(*) as count
+                FROM signals_type
+                GROUP BY signal_type
+                ORDER BY count SESC'''
+    cursor = conn.cursor()
+    cursor.execute(query)
+    value = cursor.fetchall()
+    logger.info("result", value)
+    cursor.close()
+
+    return value
