@@ -59,14 +59,15 @@ def detecting_sensitive_targets():
 
 
 def get_target_location_by_day(entity_id):
+    conn = DataBase.get_connection()
     cursor = conn.cursor()
     query = '''SELECT
-                report_lon,
-                report_lat
+                reported_lon,
+                reported_lat
                 FROM intel_signals
-                WHERE entity id = %s
-                ORDER BY timstamp'''
-    cursor.execute(query, entity_id)
+                WHERE entity_id = %s
+                ORDER BY timestamp'''
+    cursor.execute(query, (entity_id,))
     result = cursor.fetchall()
     cursor.close
     conn.close()
