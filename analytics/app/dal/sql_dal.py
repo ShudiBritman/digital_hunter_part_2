@@ -9,7 +9,8 @@ def high_priority_moved_targets():
                 target_name,
                 priority_level
                 FROM targets
-                WHERE priority IN (1, 2)'''
+                WHERE priority IN (1, 2)
+                AND distance_moved > 5'''
     cursor = conn.cursor()
     cursor.execute()
     value = cursor.fetchall()
