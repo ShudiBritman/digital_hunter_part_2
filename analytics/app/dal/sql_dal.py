@@ -31,7 +31,7 @@ def count_signal_type():
     query = '''SELECT 
                 signal_type,
                 count(*) as count
-                FROM signals_type
+                FROM intel_signals
                 GROUP BY signal_type
                 ORDER BY count DESC'''
     cursor = conn.cursor()
