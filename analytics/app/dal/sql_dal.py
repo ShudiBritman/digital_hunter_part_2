@@ -76,7 +76,14 @@ def get_target_location_by_day(entity_id):
 
 
 def find_active_after_dormant():
-    query = ""
+    query = '''SELECT
+                entity_id,
+                DATE(`timestamp`) as day,
+                sum(distance_from_last) as sum
+                FROM intel_signal
+                WHERE TIME(timestamp) BETEWEEN
+                "08:00:00" AND "19:59:59"
+                GROUP BY entity_id, day'''
     cursor = conn.cursor()
     cursor.execute(query)
     value = cursor.fetchall()
