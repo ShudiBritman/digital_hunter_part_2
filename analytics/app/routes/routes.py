@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from dal.sql_dal import *
+from app.dal.sql_dal import *
 
 
 

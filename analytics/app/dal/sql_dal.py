@@ -1,4 +1,4 @@
-from db_connection.sql_connection import DataBase
+from app.db_connection.sql_connection import DataBase
 
 
 conn = DataBase.get_connection()
