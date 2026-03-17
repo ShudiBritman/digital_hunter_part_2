@@ -18,3 +18,11 @@ def get_count_signal_type():
         return count_signal_type()
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/detecting_sensitive_targets")
+def get_detecting_sensitive_targets():
+    try:
+        return detecting_sensitive_targets()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
