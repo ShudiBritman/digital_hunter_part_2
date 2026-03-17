@@ -1,4 +1,4 @@
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from app.dal.sql_dal import get_target_location_by_day
 
 
