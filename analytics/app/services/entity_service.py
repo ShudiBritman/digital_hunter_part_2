@@ -1,5 +1,5 @@
 import matplotlib as plt
-from dal.sql_dal import get_target_location_by_day
+from app.dal.sql_dal import get_target_location_by_day
 
 
 
