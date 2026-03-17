@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-from app.routes.routes import router
+from app.routes.analytics_routes import router as analytics_router
 import uvicorn
 
 
 app = FastAPI()
 
 app.include_router(
-    router=router
+    router=analytics_router
 )
 
 
