@@ -93,7 +93,22 @@ def find_active_after_dormant():
                     WHERE TIME(`timestamp`) BETWEEN
                     "20:00:00" AND "07:59:59"
                     GROUP BY entity_id, day
-                      )'''
+                      )
+                      
+                    SELECT
+                        fh.entity_id,
+                        fh.day,
+                        fh.sum,
+                        sh.entity_id,
+                        sh.day,
+                        sh.sum
+                    FROM first_half fh
+                    JOIN second_half sh
+                        ON fh.entity_id = sh.entity_id
+                        AND fh.day = sh.day
+                    WHERE fh.sum = 0
+                    AND sh.sum >= 10
+                        '''
     cursor = conn.cursor()
     cursor.execute(query)
     value = cursor.fetchall()
