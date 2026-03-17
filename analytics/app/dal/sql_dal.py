@@ -21,7 +21,6 @@ def high_priority_moved_targets():
     cursor = conn.cursor()
     cursor.execute(query)
     value = cursor.fetchall()
-    logger.info("result", value)
     cursor.close()
 
     return value
@@ -37,7 +36,6 @@ def count_signal_type():
     cursor = conn.cursor()
     cursor.execute(query)
     value = cursor.fetchall()
-    logger.info("result", value)
     cursor.close()
 
     return value
@@ -55,7 +53,6 @@ def detecting_sensitive_targets():
     cursor = conn.cursor()
     cursor.execute(query)
     value = cursor.fetchall()
-    logger.info("result", value)
     cursor.close()
 
     return value
