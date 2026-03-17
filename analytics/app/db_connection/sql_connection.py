@@ -1,6 +1,7 @@
 import mysql.connector
 import os
 import logging
+import time
 
 
 logging.basicConfig(
@@ -20,14 +21,17 @@ class DataBase:
     
     @staticmethod
     def get_connection():
-        try:
-            return mysql.connector.connect(
-                host=host,
-                port=port,
-                user=user,
-                password=password,
-                database=database
-            )
-        except mysql.connector.Error as err:
-            logger.error("Error: %s", err)
-            raise err
+        for i in range(5):
+            try:
+                return mysql.connector.connect(
+                    host=host,
+                    port=port,
+                    user=user,
+                    password=password,
+                    database=database
+                )
+            except mysql.connector.Error as err:
+                logger.error("Error: %s", err)
+                raise err
+            time.sleep(3)
+        logger.error("Error DB not available" )
