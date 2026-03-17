@@ -110,7 +110,9 @@ def find_active_after_dormant():
                         sh.half_day,
                         sh.sum_distance
                     FROM first_half fh
-                    
+                    JOIN second_half sh
+                        ON fh.entity_id = sh.entity_id
+                        AND fh.half_day = sh.half_day
                         '''
     cursor = conn.cursor()
     cursor.execute(query)
