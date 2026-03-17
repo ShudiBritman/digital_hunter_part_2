@@ -4,7 +4,7 @@ from dal.sql_dal import get_target_location_by_day
 
 
 class Processor:
-    def Process(entity_id):
+    def process(entity_id):
         locations = get_target_location_by_day()
         Processor.plot_entity(locations)
 
