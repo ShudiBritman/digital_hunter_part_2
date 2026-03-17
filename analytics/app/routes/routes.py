@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from app.dal.sql_dal import *
 
 
@@ -10,4 +10,4 @@ def get_high_priority_moved_targets():
     try:
         return high_priority_moved_targets()
     except Exception as e:
-        return e
+        raise HTTPException(status_code=500, detail=str(e))
