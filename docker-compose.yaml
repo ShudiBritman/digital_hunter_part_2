@@ -11,5 +11,21 @@ services:
       - mysql_data:/var/lib/mysql
       - ./db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
+
+  analytics-api:
+    build: ./analytics
+    container_name: analytucs-api
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT": 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: digital_hunter
+    ports:
+      - "8000:8000"
+    networks:
+      - backend
+
+
 volumes:
   mysql_data:
