@@ -33,7 +33,7 @@ def count_signal_type():
                 count(*) as count
                 FROM signals_type
                 GROUP BY signal_type
-                ORDER BY count SESC'''
+                ORDER BY count DESC'''
     cursor = conn.cursor()
     cursor.execute(query)
     value = cursor.fetchall()
