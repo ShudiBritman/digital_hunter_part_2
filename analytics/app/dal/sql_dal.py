@@ -73,3 +73,13 @@ def get_target_location_by_day(entity_id):
     conn.close()
 
     return result
+
+
+def find_active_after_dormant():
+    query = ""
+    cursor = conn.cursor()
+    cursor.execute(query)
+    value = cursor.fetchall()
+    cursor.close()
+
+    return value
