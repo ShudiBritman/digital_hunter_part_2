@@ -48,9 +48,7 @@ def detecting_sensitive_targets():
                 s.entity_id,
                 count(*) as reports_count
                 FROM intel_signals s
-                JOIN targets t
-                    ON s.entity_id = t.entity_id
-                WHERE priority_level = 99
+                WHERE s.priority_level = 99
                 GROUP BY s.entity_id
                 ORDER BY reports_count DESC
                 LIMIT 3'''
