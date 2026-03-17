@@ -21,7 +21,7 @@ class DataBase:
     
     @staticmethod
     def get_connection():
-        for i in range(5):
+        for i in range(10):
             try:
                 return mysql.connector.connect(
                     host=host,
@@ -32,6 +32,5 @@ class DataBase:
                 )
             except mysql.connector.Error as err:
                 logger.error("Error: %s", err)
-                raise err
             time.sleep(3)
         logger.error("Error DB not available" )
