@@ -7,6 +7,7 @@ class Processor:
     def process(entity_id):
         locations = get_target_location_by_day()
         Processor.plot_entity(locations)
+        return locations
 
 
     @staticmethod
@@ -20,5 +21,5 @@ class Processor:
         plt.scatter(x[0], y[0], color="red", label="end")
 
         plt.show()
-
+        
 
