@@ -9,11 +9,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-host = os.getenv("MYSQL_HOST")
+host = os.getenv("MYSQL_HOST", "mysql")
 port = int(os.getenv("MYSQL_PORT", 3306))
-user = os.getenv("MYSQL_USER")
-password = os.getenv("MYSQL_PASSWORD")
-database = os.getenv("MYSQL_DB")
+user = os.getenv("MYSQL_USER", "root")
+password = os.getenv("MYSQL_ROOT_PASSWORD", "root")
+database = os.getenv("MYSQL_DB","digital_hunter")
 
 
 class DataBase:
@@ -30,3 +30,4 @@ class DataBase:
             )
         except mysql.connector.Error as err:
             logger.error("Error: %s", err)
+            raise err
