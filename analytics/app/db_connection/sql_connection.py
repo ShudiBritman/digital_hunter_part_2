@@ -1,15 +1,16 @@
 import mysql.connector
 import os
 
+host = os.getenv("MYSQL_HOST")
+port = int(os.getenv("MYSQL_PORT"))
+user = os.getenv("MYSQL_USER")
+password = os.getenv("MYSQL_PASSWORD")
+database = os.getenv("MYSQL_DB")
+
 
 class DataBase:
-    def __init__(self):
-        self.host = os.getenv("MYSQL_HOST")
-        self.port = int(os.getenv("MYSQL_PORT"))
-        self.user = os.getenv("MYSQL_USER")
-        self.password = os.getenv("MYSQL_PASSWORD")
-        self.database = os.getenv("MYSQL_DB")
-
+    
+    @staticmethod
     def get_connection(self):
         return mysql.connector.connect(
             host=self.host,
