@@ -24,7 +24,7 @@ services:
     container_name: analytucs-api
     environment:
       MYSQL_HOST: mysql
-      MYSQL_PORT": "3306"
+      MYSQL_PORT": 3306
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_DB: digital_hunter
