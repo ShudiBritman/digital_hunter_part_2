@@ -73,3 +73,5 @@ def get_target_location_by_day(entity_id):
     result = cursor.fetchall()
     cursor.close
     conn.close()
+
+    return result
