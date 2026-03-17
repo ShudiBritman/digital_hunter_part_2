@@ -12,7 +12,7 @@ app.include_router(
 )
 app.include_router(
     entity_routes,
-    prefix="entity"
+    prefix="/entity"
 )
 
 
